@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swapi_app/app/pages/home/home_controller.dart';
 
 class HomePage extends StatelessWidget {
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,31 +29,48 @@ class HomePage extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             SizedBox(height: 32),
-            TextFormField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Nome do personagem',
+            Form(
+              key: formKey,
+              child: TextFormField(
+                onChanged: (v) => HomeController.to.characterName = v,
+                validator: (v) {
+                  if (v.isEmpty) {
+                    return 'Informe o nome do personagem';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Nome do personagem',
+                ),
               ),
             ),
             SizedBox(height: 32),
-            Container(
-              height: 50,
-              decoration: BoxDecoration(
-                color: Get.theme.accentColor,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(1, 1),
-                    blurRadius: 1,
-                    color: Colors.black.withOpacity(0.3),
-                  ),
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  'VER DETALHES',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                if (formKey.currentState.validate()) {
+                  HomeController.to.getCharacter();
+                }
+              },
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Get.theme.accentColor,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(1, 1),
+                      blurRadius: 1,
+                      color: Colors.black.withOpacity(0.3),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    'VER DETALHES',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
