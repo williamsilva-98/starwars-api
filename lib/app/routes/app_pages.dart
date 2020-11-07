@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapi_app/app/pages/character_details/character_details_binding.dart';
 import 'package:swapi_app/app/pages/character_details/character_details_page.dart';
+import 'package:swapi_app/app/pages/film_details/film_details_binding.dart';
+import 'package:swapi_app/app/pages/film_details/film_details_page.dart';
 import 'package:swapi_app/app/pages/home/home_binding.dart';
 import 'package:swapi_app/app/pages/home/home_page.dart';
 import 'package:swapi_app/app/pages/home_world_details/home_world_details_binding.dart';
@@ -34,6 +36,14 @@ class AppPages {
       curve: Curves.easeIn,
       transition: Transition.fadeIn,
       binding: HomeWorldBinding(),
+    ),
+    GetPage(
+      title: 'Detalhes do filme',
+      name: AppRoutes.FILM_DETAILS,
+      page: () => FilmDetailsPage(),
+      curve: Curves.easeIn,
+      transition: Transition.fadeIn,
+      binding: FilmBinding(),
     ),
   ];
 }

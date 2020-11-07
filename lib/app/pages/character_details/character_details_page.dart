@@ -95,6 +95,9 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Planeta natal'),
+              subtitle: Text(
+                CharacterDetailsController.to.characterModel.homeworld,
+              ),
               trailing: Text(
                 'Ver detalhes',
                 style: TextStyle(
@@ -129,6 +132,19 @@ class CharacterDetailsPage extends StatelessWidget {
                   subtitle: Text(
                     CharacterDetailsController.to.characterModel.films[index],
                   ),
+                  trailing: Text(
+                    'Ver detalhes',
+                    style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.FILM_DETAILS,
+                      arguments: CharacterDetailsController
+                          .to.characterModel.films[index],
+                    );
+                  },
                 );
               },
             ),
