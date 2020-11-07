@@ -15,17 +15,16 @@ class HomeController extends GetxController {
   HomeController({@required this.characterRepository});
 
   Future getCharacter() async {
-    openNotFoundDialog();
-    // openLoadingDialog();
+    openLoadingDialog();
 
-    // final res = await characterRepository.getCharacter(characterName);
+    final res = await characterRepository.getCharacter(characterName);
 
-    // Get.back();
+    Get.back();
 
-    // if (res != null) {
-    //   Get.toNamed(AppRoutes.CHARACTER_DETAILS, arguments: res);
-    // } else {
-    //   openNotFoundDialog();
-    // }
+    if (res != null) {
+      Get.toNamed(AppRoutes.CHARACTER_DETAILS, arguments: res);
+    } else {
+      openNotFoundDialog();
+    }
   }
 }
