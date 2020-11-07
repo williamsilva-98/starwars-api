@@ -15,19 +15,22 @@ class CharacterDetailsPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Personagem',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 28,
                 ),
               ),
             ),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Nome'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.name,
@@ -35,6 +38,7 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Detalhes físicos',
                 style: TextStyle(
@@ -43,42 +47,55 @@ class CharacterDetailsPage extends StatelessWidget {
               ),
             ),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Altura'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.height,
               ),
             ),
+            Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Massa'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.mass,
               ),
             ),
+            Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Cor do cabelo'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.hairColor,
               ),
             ),
+            Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Cor da pele'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.skinColor,
               ),
             ),
+            Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Cor dos olhos'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.eyeColor,
               ),
             ),
+            Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Ano de nascimento'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.birthYear,
               ),
             ),
+            Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Gênero'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.gender,
@@ -86,6 +103,7 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Naturalidade',
                 style: TextStyle(
@@ -94,6 +112,7 @@ class CharacterDetailsPage extends StatelessWidget {
               ),
             ),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text('Planeta natal'),
               subtitle: Text(
                 CharacterDetailsController.to.characterModel.homeworld,
@@ -114,6 +133,7 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Filmes',
                 style: TextStyle(
@@ -121,13 +141,15 @@ class CharacterDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            ListView.builder(
+            ListView.separated(
               shrinkWrap: true,
+              separatorBuilder: (_, __) => Divider(thickness: 1),
               physics: NeverScrollableScrollPhysics(),
               itemCount:
                   CharacterDetailsController.to.characterModel.films.length,
               itemBuilder: (_, index) {
                 return ListTile(
+                  contentPadding: EdgeInsets.zero,
                   title: Text('Filme ${index + 1}'),
                   subtitle: Text(
                     CharacterDetailsController.to.characterModel.films[index],
@@ -150,6 +172,7 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Veículos',
                 style: TextStyle(
@@ -157,13 +180,15 @@ class CharacterDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            ListView.builder(
+            ListView.separated(
               shrinkWrap: true,
+              separatorBuilder: (_, __) => Divider(thickness: 1),
               physics: NeverScrollableScrollPhysics(),
               itemCount:
                   CharacterDetailsController.to.characterModel.vehicles.length,
               itemBuilder: (_, index) {
                 return ListTile(
+                  contentPadding: EdgeInsets.zero,
                   title: Text('Veículo ${index + 1}'),
                   subtitle: Text(
                     CharacterDetailsController
@@ -187,6 +212,7 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             Divider(thickness: 1),
             ListTile(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Naves Estelares',
                 style: TextStyle(
@@ -194,18 +220,33 @@ class CharacterDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            ListView.builder(
+            ListView.separated(
               shrinkWrap: true,
+              separatorBuilder: (_, __) => Divider(thickness: 1),
               physics: NeverScrollableScrollPhysics(),
               itemCount:
                   CharacterDetailsController.to.characterModel.starships.length,
               itemBuilder: (_, index) {
                 return ListTile(
+                  contentPadding: EdgeInsets.zero,
                   title: Text('Nave Estelar ${index + 1}'),
                   subtitle: Text(
                     CharacterDetailsController
                         .to.characterModel.starships[index],
                   ),
+                  trailing: Text(
+                    'Ver detalhes',
+                    style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.VEHICLE_DETAILS,
+                      arguments: CharacterDetailsController
+                          .to.characterModel.vehicles[index],
+                    );
+                  },
                 );
               },
             ),

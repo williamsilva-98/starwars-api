@@ -26,19 +26,22 @@ class FilmDetailsPage extends StatelessWidget {
                 ),
               )
             : SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text(
                         'Filme',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          fontSize: 28,
                         ),
                       ),
                     ),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Nome'),
                       subtitle: Text(
                         FilmDetailsController.to.filmModel.title,
@@ -46,30 +49,39 @@ class FilmDetailsPage extends StatelessWidget {
                     ),
                     Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Episódio'),
                       subtitle: Text(
                         FilmDetailsController.to.filmModel.episodeId.toString(),
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Abertura'),
                       subtitle: Text(
                         FilmDetailsController.to.filmModel.openingCrawl,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Diretor'),
                       subtitle: Text(
                         FilmDetailsController.to.filmModel.director,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Produtor'),
                       subtitle: Text(
                         FilmDetailsController.to.filmModel.producer,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Data de lançamento'),
                       subtitle: Text(
                         FilmDetailsController.to.filmModel.releaseDate,

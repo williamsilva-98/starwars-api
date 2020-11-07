@@ -27,19 +27,22 @@ class HomeWorldDetailsPage extends StatelessWidget {
                 ),
               )
             : SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text(
                         'Planeta natal',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          fontSize: 28,
                         ),
                       ),
                     ),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Nome'),
                       subtitle: Text(
                         HomeWorldDetailsController.to.homeWorldModel.name,
@@ -47,59 +50,66 @@ class HomeWorldDetailsPage extends StatelessWidget {
                     ),
                     Divider(thickness: 1),
                     ListTile(
-                      title: Text(
-                        'Detalhes físicos planetário',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Período de rotação'),
                       subtitle: Text(
                         HomeWorldDetailsController
                             .to.homeWorldModel.rotationPeriod,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Período orbital'),
                       subtitle: Text(
                         HomeWorldDetailsController
                             .to.homeWorldModel.orbitalPeriod,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Diâmetro'),
                       subtitle: Text(
                         HomeWorldDetailsController.to.homeWorldModel.diameter,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Clima'),
                       subtitle: Text(
                         HomeWorldDetailsController.to.homeWorldModel.climate,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Gravidade'),
                       subtitle: Text(
                         HomeWorldDetailsController.to.homeWorldModel.gravity,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Terreno'),
                       subtitle: Text(
                         HomeWorldDetailsController.to.homeWorldModel.terrain,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('Superfície da água'),
                       subtitle: Text(
                         HomeWorldDetailsController
                             .to.homeWorldModel.surfaceWater,
                       ),
                     ),
+                    Divider(thickness: 1),
                     ListTile(
+                      contentPadding: EdgeInsets.zero,
                       title: Text('População'),
                       subtitle: Text(
                         HomeWorldDetailsController.to.homeWorldModel.population,
