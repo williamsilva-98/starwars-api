@@ -1,36 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:swapi_app/app/data/models/film_model.dart';
+import 'package:swapi_app/app/data/models/vehicle_model.dart';
 import 'package:swapi_app/app/data/repositories/details_repository.dart';
 
-class FilmDetailsController extends GetxController {
-  static FilmDetailsController get to => Get.find<FilmDetailsController>();
+class VehicleDetailsController extends GetxController {
+  static VehicleDetailsController get to =>
+      Get.find<VehicleDetailsController>();
+
+  VehicleModel vehicleModel;
+  String url;
 
   final DetailsRepository detailsRepository;
-
-  FilmModel filmModel;
-  String url;
 
   final _isLoading = false.obs;
   get isLoading => this._isLoading.value;
   set isLoading(value) => this._isLoading.value = value;
 
-  FilmDetailsController({@required this.detailsRepository});
+  VehicleDetailsController({@required this.detailsRepository});
 
   @override
   void onInit() {
     url = Get.arguments;
-    getFilm();
+    getData();
     super.onInit();
   }
 
-  Future getFilm() async {
+  Future getData() async {
     isLoading = true;
 
     final res = await detailsRepository.getData(url);
 
     if (res != null) {
-      filmModel = FilmModel.fromJson(res);
+      vehicleModel = VehicleModel.fromJson(res);
     }
 
     isLoading = false;

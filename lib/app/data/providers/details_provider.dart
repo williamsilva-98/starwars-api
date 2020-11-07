@@ -1,20 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
-import 'package:swapi_app/app/data/models/film_model.dart';
 
-class FilmProvider {
+class DetailsProvider {
   final Dio httpClient;
 
-  FilmProvider({@required this.httpClient});
+  DetailsProvider({@required this.httpClient});
 
-  Future getFilm(String url) async {
+  Future getData(String url) async {
     try {
       var response = await httpClient.get(url);
 
       if (response.statusCode == 200) {
-        FilmModel filmModel = FilmModel.fromJson(response.data);
-
-        return filmModel;
+        return response.data;
       }
 
       return null;

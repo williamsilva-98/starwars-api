@@ -169,6 +169,19 @@ class CharacterDetailsPage extends StatelessWidget {
                     CharacterDetailsController
                         .to.characterModel.vehicles[index],
                   ),
+                  trailing: Text(
+                    'Ver detalhes',
+                    style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.VEHICLE_DETAILS,
+                      arguments: CharacterDetailsController
+                          .to.characterModel.vehicles[index],
+                    );
+                  },
                 );
               },
             ),

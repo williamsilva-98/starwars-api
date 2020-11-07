@@ -8,6 +8,8 @@ import 'package:swapi_app/app/pages/home/home_binding.dart';
 import 'package:swapi_app/app/pages/home/home_page.dart';
 import 'package:swapi_app/app/pages/home_world_details/home_world_details_binding.dart';
 import 'package:swapi_app/app/pages/home_world_details/home_world_details_page.dart';
+import 'package:swapi_app/app/pages/vehicle_details/vehicle_details_binding.dart';
+import 'package:swapi_app/app/pages/vehicle_details/vehicle_details_page.dart';
 
 import 'app_routes.dart';
 
@@ -44,6 +46,14 @@ class AppPages {
       curve: Curves.easeIn,
       transition: Transition.fadeIn,
       binding: FilmBinding(),
+    ),
+    GetPage(
+      title: 'Detalhes do veículo',
+      name: AppRoutes.VEHICLE_DETAILS,
+      page: () => VehicleDetailsPage(),
+      curve: Curves.easeIn,
+      transition: Transition.fadeIn,
+      binding: VehicleBinding(),
     ),
   ];
 }
