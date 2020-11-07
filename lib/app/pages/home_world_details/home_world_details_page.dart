@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:swapi_app/app/pages/character_details/character_details_controller.dart';
+import 'package:swapi_app/app/pages/home_world_details/home_world_details_controller.dart';
 
 class HomeWorldDetailsPage extends StatelessWidget {
   @override
@@ -12,164 +14,100 @@ class HomeWorldDetailsPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ListTile(
-              title: Text(
-                'Personagem',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+      body: Obx(
+        () => HomeWorldDetailsController.to.isLoading
+            ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 16),
+                    Text('Buscando informações...'),
+                  ],
+                ),
+              )
+            : SingleChildScrollView(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ListTile(
+                      title: Text(
+                        'Planeta natal',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Nome'),
+                      subtitle: Text(
+                        HomeWorldDetailsController.to.homeWorldModel.name,
+                      ),
+                    ),
+                    Divider(thickness: 1),
+                    ListTile(
+                      title: Text(
+                        'Detalhes físicos planetário',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Período de rotação'),
+                      subtitle: Text(
+                        HomeWorldDetailsController
+                            .to.homeWorldModel.rotationPeriod,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Período orbital'),
+                      subtitle: Text(
+                        HomeWorldDetailsController
+                            .to.homeWorldModel.orbitalPeriod,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Diâmetro'),
+                      subtitle: Text(
+                        HomeWorldDetailsController.to.homeWorldModel.diameter,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Clima'),
+                      subtitle: Text(
+                        HomeWorldDetailsController.to.homeWorldModel.climate,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Gravidade'),
+                      subtitle: Text(
+                        HomeWorldDetailsController.to.homeWorldModel.gravity,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Terreno'),
+                      subtitle: Text(
+                        HomeWorldDetailsController.to.homeWorldModel.terrain,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Superfície da água'),
+                      subtitle: Text(
+                        HomeWorldDetailsController
+                            .to.homeWorldModel.surfaceWater,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('População'),
+                      subtitle: Text(
+                        HomeWorldDetailsController.to.homeWorldModel.population,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            ListTile(
-              title: Text('Nome'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.name,
-              ),
-            ),
-            Divider(thickness: 1),
-            ListTile(
-              title: Text(
-                'Detalhes físicos',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Altura'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.height,
-              ),
-            ),
-            ListTile(
-              title: Text('Massa'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.mass,
-              ),
-            ),
-            ListTile(
-              title: Text('Cor do cabelo'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.hairColor,
-              ),
-            ),
-            ListTile(
-              title: Text('Cor da pele'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.skinColor,
-              ),
-            ),
-            ListTile(
-              title: Text('Cor dos olhos'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.eyeColor,
-              ),
-            ),
-            ListTile(
-              title: Text('Ano de nascimento'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.birthYear,
-              ),
-            ),
-            ListTile(
-              title: Text('Gênero'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.gender,
-              ),
-            ),
-            Divider(thickness: 1),
-            ListTile(
-              title: Text(
-                'Naturalidade',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Planeta natal'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.homeworld,
-              ),
-            ),
-            Divider(thickness: 1),
-            ListTile(
-              title: Text(
-                'Filmes',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount:
-                  CharacterDetailsController.to.characterModel.films.length,
-              itemBuilder: (_, index) {
-                return ListTile(
-                  title: Text('Filme ${index + 1}'),
-                  subtitle: Text(
-                    CharacterDetailsController.to.characterModel.films[index],
-                  ),
-                );
-              },
-            ),
-            Divider(thickness: 1),
-            ListTile(
-              title: Text(
-                'Veículos',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount:
-                  CharacterDetailsController.to.characterModel.vehicles.length,
-              itemBuilder: (_, index) {
-                return ListTile(
-                  title: Text('Veículo ${index + 1}'),
-                  subtitle: Text(
-                    CharacterDetailsController
-                        .to.characterModel.vehicles[index],
-                  ),
-                );
-              },
-            ),
-            Divider(thickness: 1),
-            ListTile(
-              title: Text(
-                'Naves Estelares',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount:
-                  CharacterDetailsController.to.characterModel.starships.length,
-              itemBuilder: (_, index) {
-                return ListTile(
-                  title: Text('Nave Estelar ${index + 1}'),
-                  subtitle: Text(
-                    CharacterDetailsController
-                        .to.characterModel.starships[index],
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
       ),
     );
   }

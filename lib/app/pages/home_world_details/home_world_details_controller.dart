@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:swapi_app/app/data/models/home_world_model.dart';
 import 'package:swapi_app/app/data/repositories/home_world_repository.dart';
 
 class HomeWorldDetailsController extends GetxController {
@@ -7,8 +8,13 @@ class HomeWorldDetailsController extends GetxController {
       Get.find<HomeWorldDetailsController>();
 
   String url;
+  HomeWorldModel homeWorldModel;
 
   final HomeWorldRepository homeWorldRepository;
+
+  final _isLoading = false.obs;
+  get isLoading => this._isLoading.value;
+  set isLoading(value) => this._isLoading.value = value;
 
   HomeWorldDetailsController({@required this.homeWorldRepository});
 
@@ -20,6 +26,14 @@ class HomeWorldDetailsController extends GetxController {
   }
 
   getHomeWorld() async {
+    isLoading = true;
+
     final res = await homeWorldRepository.getHomeWorld(url);
+
+    if (res != null) {
+      homeWorldModel = res;
+    }
+
+    isLoading = false;
   }
 }
