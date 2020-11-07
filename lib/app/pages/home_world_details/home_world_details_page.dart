@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:swapi_app/app/pages/character_details/character_details_controller.dart';
-import 'package:swapi_app/app/routes/app_routes.dart';
 
-class CharacterDetailsPage extends StatelessWidget {
+class HomeWorldDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,19 +93,9 @@ class CharacterDetailsPage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Planeta natal'),
-              trailing: Text(
-                'Ver detalhes',
-                style: TextStyle(
-                  color: Colors.blue,
-                ),
+              subtitle: Text(
+                CharacterDetailsController.to.characterModel.homeworld,
               ),
-              onTap: () {
-                Get.toNamed(
-                  AppRoutes.HOMEWORLD_DETAILS,
-                  arguments:
-                      CharacterDetailsController.to.characterModel.homeworld,
-                );
-              },
             ),
             Divider(thickness: 1),
             ListTile(
