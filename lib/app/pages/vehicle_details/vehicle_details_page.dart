@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapi_app/app/pages/film_details/film_details_controller.dart';
 import 'package:swapi_app/app/pages/vehicle_details/vehicle_details_controller.dart';
+import 'package:swapi_app/app/pages/widgets/custom_app_bar.dart';
 
 class VehicleDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          'assets/images/star_wars_logo.png',
-          height: 50,
-        ),
-        centerTitle: true,
-      ),
+      appBar: CustomAppBar(),
       body: Obx(
         () => VehicleDetailsController.to.isLoading
             ? Center(

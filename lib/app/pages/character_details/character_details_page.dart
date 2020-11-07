@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapi_app/app/pages/character_details/character_details_controller.dart';
+import 'package:swapi_app/app/pages/widgets/custom_app_bar.dart';
 import 'package:swapi_app/app/routes/app_routes.dart';
 
 class CharacterDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          'assets/images/star_wars_logo.png',
-          height: 50,
-        ),
-        centerTitle: true,
-      ),
+      appBar: CustomAppBar(),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Column(
