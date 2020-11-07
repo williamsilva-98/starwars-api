@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapi_app/app/pages/character_details/character_details_controller.dart';
 import 'package:swapi_app/app/pages/home_world_details/home_world_details_controller.dart';
 import 'package:swapi_app/app/pages/widgets/custom_app_bar.dart';
 
