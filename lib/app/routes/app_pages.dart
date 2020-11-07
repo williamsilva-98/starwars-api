@@ -8,6 +8,8 @@ import 'package:swapi_app/app/pages/home/home_binding.dart';
 import 'package:swapi_app/app/pages/home/home_page.dart';
 import 'package:swapi_app/app/pages/home_world_details/home_world_details_binding.dart';
 import 'package:swapi_app/app/pages/home_world_details/home_world_details_page.dart';
+import 'package:swapi_app/app/pages/starship_details/starship_details_binding.dart';
+import 'package:swapi_app/app/pages/starship_details/starship_details_page.dart';
 import 'package:swapi_app/app/pages/vehicle_details/vehicle_details_binding.dart';
 import 'package:swapi_app/app/pages/vehicle_details/vehicle_details_page.dart';
 
@@ -54,6 +56,14 @@ class AppPages {
       curve: Curves.easeIn,
       transition: Transition.fadeIn,
       binding: VehicleBinding(),
+    ),
+    GetPage(
+      title: 'Detalhes da nave estelar',
+      name: AppRoutes.STARSHIP_DETAILS,
+      page: () => StarshipDetailsPage(),
+      curve: Curves.easeIn,
+      transition: Transition.fadeIn,
+      binding: StarshipBinding(),
     ),
   ];
 }

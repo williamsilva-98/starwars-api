@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static const HOMEWORLD_DETAILS = '/homeworld_details';
   static const FILM_DETAILS = '/film_details';
   static const VEHICLE_DETAILS = '/vehicle_details';
+  static const STARSHIP_DETAILS = '/starship_details';
 }

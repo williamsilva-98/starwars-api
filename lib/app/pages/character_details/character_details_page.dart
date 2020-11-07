@@ -242,9 +242,9 @@ class CharacterDetailsPage extends StatelessWidget {
                   ),
                   onTap: () {
                     Get.toNamed(
-                      AppRoutes.VEHICLE_DETAILS,
+                      AppRoutes.STARSHIP_DETAILS,
                       arguments: CharacterDetailsController
-                          .to.characterModel.vehicles[index],
+                          .to.characterModel.starships[index],
                     );
                   },
                 );
