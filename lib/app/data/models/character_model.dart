@@ -1,18 +1,16 @@
-import 'dart:convert';
-
 class CharacterModel {
-  final String name;
-  final String height;
-  final String mass;
-  final String hairColor;
-  final String skinColor;
-  final String eyeColor;
-  final String birthYear;
-  final String gender;
-  final String homeworld;
-  final List<String> films;
-  final List<String> vehicles;
-  final List<String> starships;
+  String name;
+  String height;
+  String mass;
+  String hairColor;
+  String skinColor;
+  String eyeColor;
+  String birthYear;
+  String gender;
+  String homeworld;
+  List<String> films;
+  List<String> vehicles;
+  List<String> starships;
 
   CharacterModel({
     this.name,
@@ -29,25 +27,18 @@ class CharacterModel {
     this.starships,
   });
 
-  factory CharacterModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
-    return CharacterModel(
-      name: map['name'],
-      height: map['height'],
-      mass: map['mass'],
-      hairColor: map['hair_color'],
-      skinColor: map['skin_color'],
-      eyeColor: map['eye_color'],
-      birthYear: map['birth_year'],
-      gender: map['gender'],
-      homeworld: map['homeworld'],
-      films: List<String>.from(map['films']),
-      vehicles: List<String>.from(map['vehicles']),
-      starships: List<String>.from(map['starships']),
-    );
+  CharacterModel.fromJson(Map<String, dynamic> json) {
+    this.name = json['name'];
+    this.height = json['height'];
+    this.mass = json['mass'];
+    this.hairColor = json['hair_color'];
+    this.skinColor = json['skin_color'];
+    this.eyeColor = json['eye_color'];
+    this.birthYear = json['birth_year'];
+    this.gender = json['gender'];
+    this.homeworld = json['homeworld'];
+    this.films = List<String>.from(json['films']);
+    this.vehicles = List<String>.from(json['vehicles']);
+    this.starships = List<String>.from(json['starships']);
   }
-
-  factory CharacterModel.fromJson(String source) =>
-      CharacterModel.fromMap(json.decode(source));
 }
