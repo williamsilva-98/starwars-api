@@ -19,6 +19,8 @@ class CharacterProvider {
 
         return characterModel;
       }
+
+      return null;
     } catch (e) {
       return null;
     }

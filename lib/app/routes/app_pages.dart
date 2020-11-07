@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swapi_app/app/pages/character_details/character_details_binding.dart';
+import 'package:swapi_app/app/pages/character_details/character_details_page.dart';
 import 'package:swapi_app/app/pages/home/home_binding.dart';
 import 'package:swapi_app/app/pages/home/home_page.dart';
 
@@ -14,6 +16,14 @@ class AppPages {
       curve: Curves.easeIn,
       transition: Transition.fadeIn,
       binding: HomeBinding(),
+    ),
+    GetPage(
+      title: 'Detalhes do Personagem',
+      name: AppRoutes.CHARACTER_DETAILS,
+      page: () => CharacterDetailsPage(),
+      curve: Curves.easeIn,
+      transition: Transition.fadeIn,
+      binding: CharacterBinding(),
     ),
   ];
 }
