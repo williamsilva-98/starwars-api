@@ -70,7 +70,7 @@ openNotFoundDialog() {
                             ),
                             child: Center(
                               child: Text(
-                                'Entendi',
+                                'ENTENDI',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),

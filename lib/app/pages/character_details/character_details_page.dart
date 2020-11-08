@@ -109,13 +109,11 @@ class CharacterDetailsPage extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text('Planeta natal'),
-              subtitle: Text(
-                CharacterDetailsController.to.characterModel.homeworld,
-              ),
               trailing: Text(
-                'Ver detalhes',
+                'Ver mais detalhes',
                 style: TextStyle(
                   color: Colors.blue,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               onTap: () {
@@ -146,13 +144,11 @@ class CharacterDetailsPage extends StatelessWidget {
                 return ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text('Filme ${index + 1}'),
-                  subtitle: Text(
-                    CharacterDetailsController.to.characterModel.films[index],
-                  ),
                   trailing: Text(
-                    'Ver detalhes',
+                    'Ver mais detalhes',
                     style: TextStyle(
                       color: Colors.blue,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   onTap: () {
@@ -185,14 +181,11 @@ class CharacterDetailsPage extends StatelessWidget {
                 return ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text('Veículo ${index + 1}'),
-                  subtitle: Text(
-                    CharacterDetailsController
-                        .to.characterModel.vehicles[index],
-                  ),
                   trailing: Text(
-                    'Ver detalhes',
+                    'Ver mais detalhes',
                     style: TextStyle(
                       color: Colors.blue,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   onTap: () {
@@ -225,14 +218,11 @@ class CharacterDetailsPage extends StatelessWidget {
                 return ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text('Nave Estelar ${index + 1}'),
-                  subtitle: Text(
-                    CharacterDetailsController
-                        .to.characterModel.starships[index],
-                  ),
                   trailing: Text(
-                    'Ver detalhes',
+                    'Ver mais detalhes',
                     style: TextStyle(
                       color: Colors.blue,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   onTap: () {

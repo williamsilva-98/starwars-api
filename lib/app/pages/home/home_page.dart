@@ -15,13 +15,37 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Conheça os principais detalhes dos personagens de StarWars.',
-              style: TextStyle(
-                fontSize: 22,
-                color: Colors.black.withOpacity(0.8),
-              ),
-              textAlign: TextAlign.start,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Text(
+                    'Olá, Bem-vindo!',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black.withOpacity(0.8),
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Text(
+                    'Fique por dentro das principais informações sobre os personagens de StarWars.',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 32),
             Form(
@@ -35,7 +59,6 @@ class HomePage extends StatelessWidget {
                   return null;
                 },
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
                   labelText: 'Nome do personagem',
                 ),
               ),
@@ -61,11 +84,19 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 child: Center(
-                  child: Text(
-                    'VER DETALHES',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'BUSCAR',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(width: 8),
+                      Icon(Icons.search),
+                    ],
                   ),
                 ),
               ),
